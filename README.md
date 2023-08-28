@@ -20,5 +20,5 @@ Instructions:
 8. Compile and Run TestToExcel.java
 
 Upcoming Changes:
-- Automatic removal of "trash" rows in promotions.txt file, removing the need to do it manually
+- Automatic removal of "trash" rows in promotions.txt file, removing the need of steps 5-6.
   
