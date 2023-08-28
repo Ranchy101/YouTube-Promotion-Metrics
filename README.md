@@ -1,5 +1,7 @@
 # Automatic YouTube Promotion Metrics
-With just a simple copy and paste necessary, this Java program creates and formats an Excel document consisting of Cost per Sub & Impression to Sub Ratio columns, as well as automatically sorting based off performance. 
+
+A seamless way to visualize and interpret your YouTube Promotion data while it is currently in Beta. Simply copy, paste, and let the program generate a well-organized Excel sheet, detailing key metrics such as 'Cost per Sub' and 'Impression to Sub Ratio' as well as auto-formatting and intelligently sorting data based on performance metrics.
+
 
 Additional Features:
 - Promotion lists are separated by Status
