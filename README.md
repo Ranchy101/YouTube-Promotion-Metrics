@@ -26,4 +26,8 @@ Upcoming Changes:
 - An additional sorted list below the current one that sorts by Cost per Sub for ALL promotions.
 - Impression to View Ratio column
 - View to Sub Ratio column
+
+End Goal:
+Visualization in the form of bar graphs across multiple days to measure if a promotion is getting better or worse over time. Would require multiple output.xlsx files organized/named by date. 
+For example, the program would take 8-27-23.xlsx, 8-28-23.xlsx, and 8-29-23.xlsx; and create a seperate graph.xlsx file showing 2 bar graphs for every promotion that was active during all 3 files. One bar graph for Cost per Sub and another for Impression to Sub Ratio.
   
