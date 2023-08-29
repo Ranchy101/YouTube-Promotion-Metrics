@@ -12,6 +12,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TextToExcel {
 
@@ -42,22 +43,27 @@ public class TextToExcel {
     public static List<VideoData> readTextFile(String path) {
         List<VideoData> videos = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(path)))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
+            // Read all lines into a list
+            List<String> lines = reader.lines().collect(Collectors.toList());
+
+            // Skip the first 6 lines and exclude the last 3 lines
+            for (int i = 6; i < lines.size() - 3; i++) {
+                String line = lines.get(i);
                 if (line.startsWith("Video thumbnail:")) {
                     VideoData video = new VideoData();
-                    reader.readLine();
-                    video.title = reader.readLine();
-                    video.status = reader.readLine();
-                    video.cost = Double.parseDouble(reader.readLine().substring(1));
-                    video.impressions = Integer.parseInt(reader.readLine().replaceAll(",", ""));
-                    video.views = Integer.parseInt(reader.readLine().replaceAll(",", ""));
-                    video.subscribers = Integer.parseInt(reader.readLine().replaceAll(",", ""));
+                    i++;  // Skip next line
+                    video.title = lines.get(++i);
+                    video.status = lines.get(++i);
+                    video.cost = Double.parseDouble(lines.get(++i).substring(1));
+                    video.impressions = Integer.parseInt(lines.get(++i).replaceAll(",", ""));
+                    video.views = Integer.parseInt(lines.get(++i).replaceAll(",", ""));
+                    video.subscribers = Integer.parseInt(lines.get(++i).replaceAll(",", ""));
                     video.costPerSub = (video.subscribers == 0) ? 0 : video.cost / video.subscribers;
                     video.impressionToSubRatio = (video.subscribers == 0) ? 0 : ((double) video.subscribers / video.impressions) * 100; // as a percentage
                     videos.add(video);
                 }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
