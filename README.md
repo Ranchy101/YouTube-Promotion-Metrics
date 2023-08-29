@@ -16,11 +16,14 @@ Instructions:
 2. Scroll down to bottom and set Rows per Page to the maximum.
 3. Copy and paste everything starting from "Promotion" all the way down to "Rows per page..."
 4. Paste into promotions.txt file
-5. Remove first 6 rows until you hit "Video thumbnail..."
-6. Remove last 3 rows until you hit a number
-7. Make sure previous output.xlsx are closed and that promotions.txt is saved in same directory
-8. Compile and Run TestToExcel.java
+5. Make sure previous output.xlsx are closed and that promotions.txt is saved in same directory
+6. Compile and Run TestToExcel.java
+
+Changelog:
+- Automatic removal of "trash" rows in promotions.txt file
 
 Upcoming Changes:
-- Automatic removal of "trash" rows in promotions.txt file, removing the need of steps 5-6.
+- An additional sorted list below the current one that sorts by Cost per Sub for ALL promotions.
+- Impression to View Ratio column
+- View to Sub Ratio column
   
