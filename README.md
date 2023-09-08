@@ -20,7 +20,8 @@ Instructions:
 6. Compile and Run TestToExcel.java
 
 Changelog:
-- Automatic removal of "trash" rows in promotions.txt file
+- Automatic removal of "trash" rows in promotions.txt file.
+- Fixed a small bug that caused your #1 promotion to be invisible. Total Promotion counters were moved to Heading as a result.
 
 Upcoming Changes:
 - An additional sorted list below the current one that sorts by Cost per Sub for ALL promotions.
