@@ -190,27 +190,18 @@ public class TextToExcel {
             colorCounter++;
         }
 
-        Row totalValueRow = sheet.createRow(1);
-
         CellStyle totalActiveStyle = workbook.createCellStyle();
         totalActiveStyle.setFillForegroundColor(IndexedColors.SKY_BLUE.getIndex());
         totalActiveStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
-        CellStyle totalStyle = workbook.createCellStyle();
-        totalStyle.setFillForegroundColor(IndexedColors.LIGHT_YELLOW.getIndex());
-        totalStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-
-        Cell totalActiveHeader = header.getCell(9);
-        totalActiveHeader.setCellStyle(totalActiveStyle);
-        Cell totalActiveCell = totalValueRow.createCell(9);
-        totalActiveCell.setCellValue(videos.stream().filter(v -> "Active".equalsIgnoreCase(v.status)).count());
+        long totalActiveCount = videos.stream().filter(v -> "Active".equalsIgnoreCase(v.status)).count();
+        Cell totalActiveCell = header.getCell(9);
+        totalActiveCell.setCellValue("Total Active: " + totalActiveCount);
         totalActiveCell.setCellStyle(totalActiveStyle);
 
-        Cell totalHeader = header.getCell(10);
-        totalHeader.setCellStyle(totalStyle);
-        Cell totalCell = totalValueRow.createCell(10);
-        totalCell.setCellValue(videos.size());
-        totalCell.setCellStyle(totalStyle);
+        long totalCount = videos.size();
+        Cell totalCell = header.getCell(10);
+        totalCell.setCellValue("Total: " + totalCount);
 
         sheet.setColumnWidth(0, 88 * 256);
         sheet.setColumnWidth(1, 15 * 256);
@@ -220,8 +211,8 @@ public class TextToExcel {
         sheet.setColumnWidth(5, 11 * 256);
         sheet.setColumnWidth(6, 12 * 256);
         sheet.setColumnWidth(7, 24 * 256);
-        sheet.setColumnWidth(9, (int)(11.5 * 256));
-        sheet.setColumnWidth(10, (int)(5.4 * 256));
+        sheet.setColumnWidth(9, 14 * 256);  // Adjusted width for "Total Active" column
+        sheet.setColumnWidth(10, 9 * 256);  // Adjusted width for "Total" column
 
         try (FileOutputStream fileOut = new FileOutputStream(outputPath)) {
             workbook.write(fileOut);
