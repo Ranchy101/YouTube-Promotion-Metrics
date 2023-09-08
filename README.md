@@ -24,7 +24,7 @@ Changelog:
 - Fixed a small bug that caused your #1 promotion to be invisible. Total Promotion counters were moved to Heading as a result.
 
 Upcoming Changes:
-- (PRIORITY) A way to read more 50+ promotions due to YouTube's list limitations. Best course of action is to have the program delete the trash rows based off exact text matching vs the current method of simply deleting the first and last few rows.
+- (PRIORITY) A way to read more than 50+ promotions due to YouTube's list limitations. Best course of action is to have the program delete the trash rows based off exact text matching vs the current method of simply deleting the first and last few rows.
 - An additional sorted list below the current one that sorts by Cost per Sub for ALL promotions.
 - Impression to View Ratio column
 - View to Sub Ratio column
